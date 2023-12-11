@@ -3,9 +3,9 @@ class Castle:
         self.estetics = ""
         self.treasury = 500
         self.mainKeepLVL = 1
-        self.innerWallLVL = 0
-        self.innerWestTowerLVL = 0
-        self.innerEastTowerLVL = 0
+        #self.innerWallLVL = 0
+        #self.innerWestTowerLVL = 0
+        #self.innerEastTowerLVL = 0
         self.outerWallLVL = 0
         self.outerWestTowerLVL = 0
         self.outerEastTowerLVL = 0
@@ -65,7 +65,7 @@ class EuropeanCastle(Castle):
         super().__init__()
         self.region = "Europe"
         self.armoryLVL = 0  # Additional attribute specific to European castles
-        self.moat = 0
+        #self.moat = 0
 
 
 class JapaneseCastle(Castle):
