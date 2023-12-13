@@ -6,7 +6,6 @@ class Castle:
         #self.innerWallLVL = 0
         #self.innerWestTowerLVL = 0
         #self.innerEastTowerLVL = 0
-        self.outerWallLVL = 0
         self.outerWestTowerLVL = 0
         self.outerEastTowerLVL = 0
         self.gateLVL = 0
