@@ -118,27 +118,26 @@ def button_europa(button_image, font1, font2, text_color, screen, player):
     button7.draw(screen)
     button8.draw(screen)
 
-def scene(player, scenario,screen):
-    
-    if scenario == "japan":
-        
-    else: 
-        final_imadge = enlarge_by_x(weather_LVL3_europa_image, 7)
-        landscape = enlarge_by_x(landscape_europa_image, 7)
-        
+def quit_button(screen):
+    quit_button = Button(0, 0, 35, 35, "EXIT", (200, 100, 100), (200, 200, 200), action=pygame.quit)
+    quit_button.draw(screen)
+
+  
+def scene(player, scenario,screen):        
     if player.weather == 1:
         screen.blit(enlarge_by_x(weather_LVL1_image, 7),(0, 35))
     elif player.weather == 2:
-        screen.blit(enlarge_by_x(weather_LVL1_image, 7), (0, 35))
-    elif player.weather >= 3:
-        screen.blit(final_imadge, (0,35))
-    screen.blit(landscape, (0,0))
+        screen.blit(enlarge_by_x(weather_LVL2_image, 7), (0, 35))
+    
     
     if scenario == "japan":
+        final_imadge = enlarge_by_x(weater_LVL3_japan_image, 7)
+        if player.weather >= 3:
+            screen.blit(final_imadge, (0,35))
+        screen.blit(landscape, (0,0))
+        # back = screen.blit(enlarge_by_x(, 7), (0, 35))
         if player.mainKeepLVL >= 1:
             pass
-        else:
-    
         if player.westTowerLVL >= 1:
             pass
         if player.eastTowerLVL >= 1:
@@ -151,28 +150,27 @@ def scene(player, scenario,screen):
         if player.farmLVL >= 1:
             pass
 
-    else:
+    elif scenario == "europa":
+        final_imadge = enlarge_by_x(weather_LVL3_europa_image, 7)
+        landscape = enlarge_by_x(landscape_europa_image, 7)
+        if player.weather >= 3:
+            screen.blit(final_imadge, (0,35))
+        screen.blit(landscape, (0,35))
         if player.mainKeepLVL >= 1:
-                        screen.blit(enlarge_by_x(main_keep_europa_image, 7), (200, 200))
-
-    
+            if player.gateLVL >= 1:
+                screen.blit(enlarge_by_x(main_keep_europa_image, 7), (100, 35))
+            else:
+                screen.blit(enlarge_by_x(main_keep_europa_image, 7), (100, 175))
         if player.westTowerLVL >= 1:
-    
-            pass
-        else:
-            pass
+            screen.blit(enlarge_by_x(west_tower_europa_image, 7), (100, 35))
         if player.eastTowerLVL >= 1:
-            pass
-        else:
-            pass
+            screen.blit(enlarge_by_x(east_tower_europa_image, 7), (100, 35))
         if player.wallLVL >= 1:
-            pass
-        else:
-            pass
-        if player.gateLVLLVL >= 1:
-            pass
-        else:
+            screen.blit(enlarge_by_x(wall_europa_image, 7), (100, 35))
+        if player.gateLVL >= 1:
+            screen.blit(enlarge_by_x(gate_europa_image, 7), (100, 35))
         if player.farmLVL >= 1:
-            pass
-        else:
+            screen.blit(enlarge_by_x(windmill, 7), (50, 35))
+
+
 

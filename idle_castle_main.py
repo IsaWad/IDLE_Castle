@@ -5,15 +5,23 @@ text = "Click Me"
 text_color = (255, 255, 255)
 start = True
 player = None
+
 pygame.init()
+pygame.mixer.init()
+music_files_europa = ['.\\music\\beethoven-moonlight-sonata-1-movement-op-27-nr-2.mp3', 'music2.mp3', 'music3.mp3']
+current_track = 0
+pygame.mixer.music.load(music_files_europa[current_track])
+pygame.mixer.music.play()
 
 screen = pygame.display.set_mode([1120, 630])
 font = pygame.font.Font(None, 30)
 font2 = pygame.font.Font(None, 15)
 
 def button_scenario(button_image, font1, text_color, screen):
-    button_europa = ImageButton(950, 40, button_image,"Europa", "", font1, font1, text_color, text_color, action=start_europa)
-    button_japan = ImageButton(950, 110, button_image,"Japan", "", font1, font1, text_color, text_color, action=start_japan)
+    button_information = ImageButton(950, 40, button_image,"Shoose", "Region", pygame.font.Font(None, 20), pygame.font.Font(None, 20), text_color, text_color, action=None)
+    button_europa = ImageButton(950, 110, button_image,"Europa", "", font1, font1, text_color, text_color, action=start_europa)
+    button_japan = ImageButton(950, 180, button_image,"Japan", "", font1, font1, text_color, text_color, action=start_japan)
+    button_information.draw(screen)
     button_europa.draw(screen)
     button_japan.draw(screen)
 
@@ -46,26 +54,41 @@ while running:
             running = False
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             running = False
+
+    if not pygame.mixer.music.get_busy():
+        # Move to the next track
+        current_track = (current_track + 1) % len(music_files_europa)
+        pygame.mixer.music.load(music_files_europa[current_track])
+        pygame.mixer.music.play()
+
+        # Add a short delay to reduce CPU usage
+    #time.sleep(0.1)
+
     x, y = 0, 0
 
-    screen.blit(enlarge_by_x(weather_LVL2_image, 7),(0, 35))
-    screen.blit(enlarge_by_x(landscape_europa_image, 7),(0, 35))
-    screen.blit(enlarge_by_x(main_keep_europa_image, 7),(0, 35))
+    
     #screen.blit(enlarge_by_x(weather_LVL2_image, 7),(0, 35))
 
 
-    screen.blit(enlarged_image, (x, y))
-
     if start:
+        screen.blit(enlarged_image, (x, y))
         button_scenario(button_image, font, text_color, screen)
     else:
         if scenario == "japan":
+            scene(player,scenario, screen)
+            screen.blit(enlarged_image, (x, y))
             button_japan(button_image, font, font2, text_color, screen, player)
             player.treasury += player.tax(tick)
-            scene(player,scenario, screen)
+            
+            
         elif scenario == "europa":
+            scene(player,scenario, screen)
+            screen.blit(enlarged_image, (x, y))
             button_europa(button_image, font, font2, text_color, screen, player)
             player.treasury += player.tax(tick)
+
+    quit_button(screen)
+            
             
     
     clock.tick(FPS)
@@ -73,4 +96,4 @@ while running:
         
     pygame.display.update()
 
-#pygame.quit()
+pygame.quit()

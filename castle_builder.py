@@ -12,7 +12,7 @@ class Castle:
         self.region = "" #Europa or Japan
 
     def tax(self, tick):
-        if tick % 10 == 0:
+        if tick % 1 == 0:
             farm_tax = self.farmLVL * self.weather  # Use wether as a multiplier for farmLVL
             excluded_attributes = ['weather', 'farmLVL', 'treasury']  # Attributes to exclude
             total_tax = 0
