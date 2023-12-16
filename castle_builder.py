@@ -34,14 +34,14 @@ class Castle:
     def upgrade_building(self, building_name):
         # Check if the building exists in the castle
         if hasattr(self, building_name):
-            current_level = getattr(self, building_name + 'LVL')
+            current_level = getattr(self, building_name)
             upgrade_cost = self.upgrading_price(current_level + 1)
 
             # Check if the castle has enough resources to perform the upgrade
             if upgrade_cost <= self.treasury:
                 # Deduct the upgrade cost and perform the upgrade
                 self.treasury -= upgrade_cost
-                setattr(self, building_name + 'LVL', current_level + 1)
+                setattr(self, building_name, current_level + 1)
                 print(f"{building_name} upgraded to level {current_level + 1}")
             else:
                 print("Insufficient coins to upgrade")

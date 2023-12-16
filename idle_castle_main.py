@@ -37,7 +37,9 @@ button_image = enlarge_by_x(button_image, 7)
 
 running = True
 tick = 0
-tax = 5
+#tax = 5
+clock = pygame.time.Clock()
+FPS = 8
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -46,20 +48,27 @@ while running:
             running = False
     x, y = 0, 0
 
+    screen.blit(enlarge_by_x(weather_LVL2_image, 7),(0, 35))
+    screen.blit(enlarge_by_x(landscape_europa_image, 7),(0, 35))
+    screen.blit(enlarge_by_x(main_keep_europa_image, 7),(0, 35))
+    #screen.blit(enlarge_by_x(weather_LVL2_image, 7),(0, 35))
+
+
     screen.blit(enlarged_image, (x, y))
 
-    
     if start:
         button_scenario(button_image, font, text_color, screen)
     else:
         if scenario == "japan":
-            button_japan(button_image, font, font2, text_color, screen, player, tax)
-            tax += player.tax(tick)
+            button_japan(button_image, font, font2, text_color, screen, player)
+            player.treasury += player.tax(tick)
+            scene(player,scenario, screen)
         elif scenario == "europa":
-            button_europa(button_image, font, font2, text_color, screen, player, tax)
-            tax += player.tax(tick)
+            button_europa(button_image, font, font2, text_color, screen, player)
+            player.treasury += player.tax(tick)
+            
     
-
+    clock.tick(FPS)
     tick +=1
         
     pygame.display.update()
