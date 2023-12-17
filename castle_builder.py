@@ -2,7 +2,7 @@ import math
 class Castle:
     def __init__(self):
         self.estetics = ""
-        self.treasury = 500
+        self.treasury = 0
         self.mainKeepLVL = 1
         self.wallLVL = 0
         self.westTowerLVL = 0
@@ -12,7 +12,7 @@ class Castle:
         self.region = "" #Europa or Japan
 
     def tax(self, tick):
-        if tick % 1 == 0:
+        if tick % 2 == 0:
             farm_tax = self.farmLVL * self.weather  # Use wether as a multiplier for farmLVL
             excluded_attributes = ['weather', 'farmLVL', 'treasury']  # Attributes to exclude
             total_tax = 0

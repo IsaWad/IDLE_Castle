@@ -67,7 +67,7 @@ class ImageButton(Button):
         screen.blit(sub_text_surface, sub_text_rect)
 
 
-# Enlarge by seven
+# Enlarge by x times
 def enlarge_by_x(image, x):
     image_width, image_height = image.get_width(), image.get_height()
     image = pygame.transform.scale(image, (image_width * x, image_height * x))
@@ -123,7 +123,7 @@ def quit_button(screen):
     quit_button.draw(screen)
 
   
-def scene(player, scenario,screen):        
+def scene(player, scenario, screen):        
     if player.weather == 1:
         screen.blit(enlarge_by_x(weather_LVL1_image, 7),(0, 35))
     elif player.weather == 2:
@@ -132,23 +132,23 @@ def scene(player, scenario,screen):
     
     if scenario == "japan":
         final_imadge = enlarge_by_x(weater_LVL3_japan_image, 7)
+        landscape = enlarge_by_x(landscape_japan_image, 7)
         if player.weather >= 3:
             screen.blit(final_imadge, (0,35))
-        screen.blit(landscape, (0,0))
+        screen.blit(landscape, (0, 35))
         # back = screen.blit(enlarge_by_x(, 7), (0, 35))
         if player.mainKeepLVL >= 1:
-            pass
+            screen.blit(enlarge_by_x(main_keep_japan_image, 7), (0, 35))
         if player.westTowerLVL >= 1:
-            pass
+            screen.blit(enlarge_by_x(west_tower_japan_image, 7), (0, 35))
         if player.eastTowerLVL >= 1:
-            pass
+            screen.blit(enlarge_by_x(east_tower_japan_image, 7), (0, 35))
         if player.wallLVL >= 1:
-            pass
+            screen.blit(enlarge_by_x(wall_japan_image, 7), (0, 35))
         if player.dojoLVL >= 1:
-            pass
-
+            screen.blit(enlarge_by_x(dojo_japan_image, 7), (0, 35))
         if player.farmLVL >= 1:
-            pass
+            screen.blit(enlarge_by_x(fishery, 7), (0, 35))
 
     elif scenario == "europa":
         final_imadge = enlarge_by_x(weather_LVL3_europa_image, 7)
