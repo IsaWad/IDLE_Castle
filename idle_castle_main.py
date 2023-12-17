@@ -8,7 +8,7 @@ player = None
 
 pygame.init()
 pygame.mixer.init()
-music_files_europa = ['.\\music\\Battotai - Imperial Japanese Army March.mp3', '.\\music\\beethoven-moonlight-sonata-1-movement-op-27-nr-2.mp3']
+music_files_europa = ['.\\music\\beethoven-moonlight-sonata-1-movement-op-27-nr-2.mp3', '.\\music\\Battotai - Imperial Japanese Army March.mp3']
 current_track = 0
 pygame.mixer.music.load(music_files_europa[current_track])
 pygame.mixer.music.play()
