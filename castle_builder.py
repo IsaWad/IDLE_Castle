@@ -53,11 +53,6 @@ class Castle:
         
     #def load():
 
-    #def setWeather(self, weather):
-        #Set ewther based on castle level?
-
-    #def wind(self, region):
-
 class EuropeanCastle(Castle):
     def __init__(self):
         super().__init__()

@@ -1,5 +1,8 @@
 import pygame
 
+# Here all images are given a object that is used in the cod to show the image.
+# They are constant and do not change.
+
 frame_image = pygame.image.load('.\\Images\\Frame.png')
 button_image = pygame.image.load('.\\Images\\MenueButton2.png')
 weather_LVL1_image = pygame.image.load('.\\Images\\Cloudy Sky.png')
