@@ -71,6 +71,7 @@ while running:
     if start:
         screen.blit(enlarged_frame_image, (x, y))
         button_scenario(button_image, font, text_color, screen)
+        
     else:
         if scenario == "japan":
             scene(player,scenario, screen)

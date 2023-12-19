@@ -7,3 +7,7 @@ För att starta programmet kör du filen idle_castle_main.py.
 När programmet stängs ner genom att använda exit knappen fås ett felmeddelande som troligtvis härstammar från pygames biblioteket.
 
 För att testa kan man ändra variabeln treasury i castle_builder.py för att få mer guld när spelet startas.
+
+"Images pixil" är bilder som kan öppnas i hemsidan/programmet pixilart.com och kan användas om man vill redigera vissa bilder.
+
+Det finns även bakgrunds musik.
